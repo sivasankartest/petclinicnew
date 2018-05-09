@@ -11,18 +11,9 @@ node
         sh 'mvn clean install'
       }
     }
-    stage('archive') {
-      steps {
-              junit 'target/surefire-reports/*.xml'
-            }
-       }
     stage("static code analysis")
     {
         echo "static code analysis"
-    }
-    stage("build automation")
-    {
-        echo "test build"
     }
     stage("delivery")
     {
