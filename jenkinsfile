@@ -13,13 +13,9 @@ node
     }
     stage('archive') {
       steps {
-        parallel(
-          "Junit": {
-            junit 'target/surefire-reports/*.xml'
-            
-          }
+              junit 'target/surefire-reports/*.xml'
+            }
        }
-    }
     stage("static code analysis")
     {
         echo "static code analysis"
