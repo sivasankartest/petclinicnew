@@ -1,0 +1,21 @@
+def workspace
+node
+{
+    stage("Checkout")
+    {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '3b6da29d-fa96-4bdc-9315-609e86affd00', url: 'https://github.com/sivasankartest/petclinicnew.git']]])
+        workspace =pwd()
+    }
+    stage("static code analysis")
+    {
+        echo "static code analysis"
+    }
+    stage("build automation")
+    {
+        echo "test build"
+    }
+    stage("delivery")
+    {
+        echo"delivery packages"
+    }
+}
