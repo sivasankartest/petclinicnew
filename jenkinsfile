@@ -6,8 +6,7 @@ node
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '3b6da29d-fa96-4bdc-9315-609e86affd00', url: 'https://github.com/sivasankartest/petclinicnew.git']]])
         workspace =pwd()
     }
-        stage('compile') {
-      steps {
+    stage("compile") {
         sh 'mvn clean install'
       }
     }
