@@ -7,7 +7,7 @@ node
         workspace =pwd()
     }
     stage("compile") {
-        sh 'mvn clean install'
+        sh '/usr/local/maven/bin/mvn clean install'
       }
     stage("static code analysis")
     {
