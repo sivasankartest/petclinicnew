@@ -6,3 +6,5 @@ withDockerContainer('8e7cc2788cf2') {
     // some block
 }
 } 
+}
+}
