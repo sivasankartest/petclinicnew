@@ -5,4 +5,11 @@ pipeline {
             args '-v $HOME/.m2:/root/.m2'
         }
     }
- }
+ stage("Checkout")
+    {
+     // This step should not normally be used in your script. Consult the inline help for details.
+withDockerContainer('8e7cc2788cf2') {
+    // some block
+} 
+}
+} 
