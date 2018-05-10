@@ -1,14 +1,11 @@
-def workspace
-node
-{
+pipeline {
+    agent {
+        docker { image 'siva-test' }
+    }
     stage("Checkout")
     {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '3b6da29d-fa96-4bdc-9315-609e86affd00', url: 'https://github.com/sivasankartest/petclinicnew.git']]])
-        workspace =pwd()
     }
-    stage("compile") {
-        sh '/usr/local/maven/bin/mvn clean install'
-      }
     stage("static code analysis")
     {
         echo "static code analysis"
@@ -17,4 +14,3 @@ node
     {
         echo"delivery packages"
     }
-}
