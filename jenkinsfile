@@ -16,5 +16,10 @@ pipeline {
 	           sh '/usr/local/maven/bin/mvn package'
 	   }
 	   }
+	   stage ('merge to master') {
+	    steps {
+	            sh 'git merge master'
+		   }
+		 }  
 	  }
 	}
