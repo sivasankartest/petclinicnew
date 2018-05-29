@@ -3,7 +3,7 @@ pipeline {
    stages {
        stage ('compile stage') {
 	    steps {
-		   sh '/usr/local/maven/bin/mvn clean compile'
+		   sh '/usr/local/maven/bin/mvn clean'
 		}
 	}
 	  stage ('testing stage') {
