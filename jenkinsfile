@@ -3,23 +3,17 @@ pipeline {
    stages {
        stage ('compile stage') {
 	    steps {
-		  withMaven(maven: 'maven') {
-		    sh 'mvn clean compile'
+		   sh '/usr/local/maven/bin/mvn clean compile'
 		}
-	}
 	}
 	  stage ('testing stage') {
 	   steps {
-	     withMaven(maven: 'maven') {
-	       sh 'mvn test'
-	   }
-	   }
+		       sh '/usr/local/maven/bin/mvn test'
+		   }
 	   }
 	  stage ('deployment') {
 	   steps {
-	      withMaven(maven: 'maven') {
-	         sh 'mvn deploy'
-	   }
+	           sh '/usr/local/maven/bin/mvn deploy
 	   }
 	   }
 	  }
