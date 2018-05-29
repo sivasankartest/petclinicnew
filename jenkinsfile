@@ -1,10 +1,26 @@
 pipeline {
-    agent {
-        docker {
-                 // This step should not normally be used in your script. Consult the inline help for details.
-withDockerContainer('8e7cc2788cf2') {
-    // some block
-}
-} 
-}
-}
+     agent any
+   stages {
+       stage ('compile stage') {
+	    steps {
+		  withMaven(maven: 'maven') {
+		    sh 'mvn clean compile'
+		}
+	}
+	}
+	  stage ('testing stage') {
+	   steps {
+	     withMaven(maven: 'maven') {
+	       sh 'mvn test'
+	   }
+	   }
+	   }
+	  stage ('deployment') {
+	   steps {
+	      withMaven(maven: 'maven') {
+	         sh 'mvn deploy'
+	   }
+	   }
+	   }
+	  }
+	}
