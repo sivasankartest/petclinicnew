@@ -13,7 +13,7 @@ pipeline {
 	   }
 	  stage ('deployment') {
 	   steps {
-	           sh '/usr/local/maven/bin/mvn install'
+	           sh '/usr/local/maven/bin/mvn package'
 	   }
 	   }
 	  }
