@@ -16,14 +16,5 @@ pipeline {
 	           sh '/usr/local/maven/bin/mvn package'
 	   }
 	   }
-	  stage ('merge to master') {
-	   steps {
-	           sh 'cd /var/lib/jenkins/workspace/pipeline-dev'
-		   sh 'git merge master'
-		   sh 'git add .'
-		   sh 'git commit -am "merge into master" '
-		   sh 'git push origin master'
-	   }
-	}
-}
+	  }
 }
