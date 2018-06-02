@@ -60,7 +60,7 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
-
+    
     <!-- Databases - Uses HSQL by default -->
     <dependency>
       <groupId>org.hsqldb</groupId>
@@ -260,5 +260,16 @@
       </plugin>
     </plugins>
   </reporting>
-
+<distributionManagement>
+  <repository>
+    <id>RepoR</id>
+    <!-- CHANGE HERE by your team nexus server -->
+    <url>http://192.168.53.10:8081/repository/RepoR/</url>
+  </repository>
+  <snapshotRepository>
+    <id>RepoS</id>
+    <!-- CHANGE HERE by your team nexus server -->
+    <url>http://192.168.53.10:8081/repository/RepoS/</url>
+  </snapshotRepository>
+</distributionManagement>
 </project>
