@@ -1,20 +1,23 @@
 pipeline {
      agent any
    stages {
-       stage ('compile stage') {
+       stage ('compile') {
 	    steps {
-		   sh '/usr/local/maven/bin/mvn clean'
+		   sh '/usr/local/maven/bin/mvn compile'
 		}
 	}
-	  stage ('testing stage') {
+	  stage ('test') {
 	   steps {
 		       sh '/usr/local/maven/bin/mvn test'
 		   }
 	   }
-	  stage ('deployment') {
+	  stage ('package') {
 	   steps {
 	           sh '/usr/local/maven/bin/mvn package'
 	   }
 	   }
+	   stage ('install') {
+	   steps {
+	           sh '/usr/local/maven/bin/mvn install'
 	  }
 }
