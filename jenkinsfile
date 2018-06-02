@@ -20,4 +20,6 @@ pipeline {
 	   steps {
 	           sh '/usr/local/maven/bin/mvn install'
 	  }
+	  }
+	  }
 }
